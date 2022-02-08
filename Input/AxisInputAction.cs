@@ -1,6 +1,18 @@
 using Godot;
 using System;
-
-public class AxisInputAction : InputAction
+namespace GodotFramework
 {
+    public class AxisInputAction : Resource
+    {
+        [Export]
+        public string InputName = "Trigger";
+
+        [Export]
+        public bool Exact = false;
+
+        public float GetAxis()
+        {
+            return Input.GetActionStrength(InputName, Exact);
+        }
+    }
 }
